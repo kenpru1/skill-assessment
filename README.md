@@ -1,193 +1,40 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Prueba Técnica 
+
+se usa el sistema de autenticación Laravel Breeze. Se utiliza <b>Laravel 9</b> y <b>Vue 3</b> con <b>Inertia.js</b>.
+
+Se crea un componente para el modal de crear y editar.
+
+Se utiliza Factory para crear 10 registros iniciales en tabla users B.D.
+
+la cuenta del usuario test 
+
+Usuario : test@example.com
+Contraseña : 1234567
 
 
-# Kanye West Quotes
-#### Skill Assessment
+Instalación:
 
-The challenge will contain a few core features most applications have. That includes connecting to an API, basic MVC, exposing an API, and finally tests.
+1) Crear una base de datos mysql
 
-The API we want you to connect to is https://kanye.rest/
+2) Clonar o descargar el proyecto en el directorio de tu servidor web
 
-### The application should have the following features:
-* User authentication and profile update page
-* A page that shows 5 random Kayne West quotes
-    * There should be a button to refresh the quotes
-    * There should be a button besides each quote to save it to your favorites
-* A page that shows your saved favorites
-    * There should be a button to delete a quote from your favorites
-* Implement rate limiting for API requests to `https://kanye.rest/` preventing abuse.
-    * The API should be limited to 30 requests per minutes
-* Separate admin authentication for moderating saved user quotes and banning users
-* Frontend should be done with Vue.js and optionally Inertia.js
-    * Typescript should be used for any frontend functionality
-    * UI should be responsive
-* An API route should be available to fetch a specified number of quotes random Kayne West quotes
-* An API route should be available to fetch your favorites quotes
-* An API route should be available to delete a quote from your favorites
-* All API route should be secured with an user token
-* Above features are to be tested with Feature tests
+3) Acceder mediante terminal a la carpeta del proyecto
 
-## Developer
-Name: `<your name>` <br/>
-Email: `<your email>`<br/>
+4) Versión <b>PHP 8.1</b> para los paquetes <b>de php y laravel</b> 
 
-## Instructions
-### DO NOT START A NEW LARAVEL APP, USE THIS BOILERPLATE INSTEAD !!
+5) Ejecutar:  <b>Composer install</b>
 
-### Cloning the repository
-1. Create a bare clone of the repository. (This is temporary and will be removed so just do it wherever.)
-    ```bash
-    git clone --bare https://github.com/FmTod/skill-assessment-kanye-west.git
-    ```
+6) Crear el archivo .env con los comandos: <b> cp .env.example .env</b>
 
-2. Create a new repository on GitHub.
+7) Generar la API key ejecutando: <b> php artisan key:generate </b>
 
-3. Mirror-push your bare clone to your new repository.<br/>_Replace &lt;username&gt; with your actual Github username in the url below._<br/>_Replace &lt;repository&gt; with the name of your new repository._
-    ```shell
-    cd skill-assessment-kanye-west.git
-    git push --mirror https://github.com/<username>/<repository>.git
-    ```
-4. Delete the bare clone created in step 1.
-    ```shell
-    cd ..
-    rm -rf skill-assessment-kanye-west.git
-    ```
-   
-5. You can now clone your repository, where you are going to be working, on your machine (in my case in the code folder).
-    ```shell
-    cd ~/code
-    git clone https://github.com/<username>/<repository>.git
-    ```
+8) En el archivo .env colocar el nombre de la base de datos
 
-## Getting Started
+9) Para ejecutar las migraciones: <b>php artisan migrate:fresh --seed</b>
 
-1. Create a copy of the `.env.example` file as `.env`
-    ```bash
-    cp .env.example .env
-    ```
+10) Versión <b>node 18</b> para los paquetes <b>npm install</b> para las dependencias de node.js
 
-2. Install dependencies:
+11) Ejecutar <b>npm install</b> para las dependencias de node.js
 
-<details>
-<summary> a. Docker (Recommended)</summary>
+12) Ejecutar <b>php artisan serve</b> para visualizarlo en el navegador o puedes usar Laragon, xammp, etc.
 
-3. Install composer dependecies
-    ```shell
-    docker run --rm \
-        -u "$(id -u):$(id -g)" \
-        -v $(pwd):/var/www/html \
-        -w /var/www/html \
-        laravelsail/php81-composer:latest \
-        composer install --ignore-platform-reqs
-    ```
-
-4. Start the container (Sail):
-    ```shell
-    ./vendor/bin/sail up -d
-    ```
-
-5. Generate a new secret key:
-    ```shell
-    ./vendor/bin/sail artisan key:generate
-    ```
-</details>
-
-<details>
-<summary>b. Without Docker (Not recommended)</summary>
-
-3. Install all required dependencies
-    ```bash
-    composer install
-    ```
-
-4. Generate a new secret key:
-    ```shell
-    php artisan key:generate
-    ```
-
-</details>
-
-‼️ <i>Note: Docker is recommended as you have all the external dependecies needed are already present in the provided container. Without docker you may need to install some external dependencies like MySQL or some extra PHP extensions required by the project</i>
-
-## Your first commit (IMPORTANT)
-   
-1. Edit the README.md file and add your name and email.
-    ```diff
-    - Name: `<your name>` <br/>
-    - Email: `<your email>` <br/>
-    + Name: Jhon Doe <br/>
-    + Email: jhondoe@exmaple.com <br/>
-    ```
-   
-2. Submit your first commit with just the changes to the README.md file. Must be done before starting the assignment.
-    ```shell
-    git add README.md
-    git commit -m "Initial commit"
-    git push
-    ```
-
-## Executing Commands
-
-<details>
-<summary>Docker/Sail</summary>
-
-### PHP Commands
-```shell
-./vendor/bin/sail php --version
- 
-./vendor/bin/sail php script.php
-```
-
-### Composer Commands
-```shell
-./vendor/bin/sail composer require laravel/sanctum
-```
-
-### Artisan Commands
-```shell
-./vendor/bin/sail artisan queue:work
-```
-
-### Node / NPM Commands
-```shell
-./vendor/bin/sail node --version
- 
-./vendor/bin/sail npm run dev
-```
-
-If you wish, you may use Yarn instead of NPM:
-```shell
-./vendor/bin/sail yarn
-```
-
-### Running Tests
-```shell
-./vendor/bin/sail test
-
-./vendor/bin/sail test --group orders
-```
-
-</details>
-
-<details>
-<summary>Without Docker</summary>
-
-### Artisan Commands
-```shell
-php artisan serve
-php artisan list
-```
-
-### Node / NPM Commands
-```shell
-npm run dev
-// or
-npm run build
-```
-
-### Running Tests
-```shell
-composer test
-```
-
-</details>
