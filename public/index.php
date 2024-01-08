@@ -3,6 +3,21 @@
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
+// header("Access-Control-Allow-Origin: *");
+// header('Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS');
+// header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With, Cache-Control');
+// header('Access-Control-Allow-Credentials: true');
+
+
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+$method = $_SERVER['REQUEST_METHOD'];
+if($method == "OPTIONS") {
+    die();
+}
+
 define('LARAVEL_START', microtime(true));
 
 /*
@@ -43,6 +58,7 @@ require __DIR__.'/../vendor/autoload.php';
 | to this client's browser, allowing them to enjoy our application.
 |
 */
+
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
 

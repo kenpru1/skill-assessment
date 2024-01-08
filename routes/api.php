@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuotesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('getQuotes', [QuotesController::class, 'getQuotes']);
+Route::post('storeQuote', [QuotesController::class, 'store']);
+Route::delete('deleteQuote/{id}', [QuotesController::class, 'destroy']);
